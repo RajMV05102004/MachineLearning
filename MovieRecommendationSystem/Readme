@@ -1,0 +1,60 @@
+# 🎬 Movie Recommender System
+
+A content-based Movie Recommender System built using the TMDB (The Movie Database) dataset. This system suggests similar movies based on the one selected by the user, using features like genres, overview, keywords, cast, and crew.
+
+## 📁 Dataset
+
+The dataset is taken from [TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata). It includes:
+
+- `movies.csv` - General metadata about movies.
+- `credits.csv` - Detailed information about cast and crew.
+
+## ✅ Features Used for Recommendation
+
+To recommend similar movies, we combine and process the following features:
+
+- **Genres**
+- **Overview (plot description)**
+- **Keywords**
+- **Cast**
+- **Crew (especially the director)**
+
+These features are transformed into a single textual "tag" for each movie.
+
+## 🛠️ Tech Stack
+
+- **Python**
+- **Pandas** – for data manipulation
+- **Numpy**
+- **Scikit-learn** – for vectorization and cosine similarity
+- **NLTK** – for stemming
+- **CountVectorizer** – for text feature extraction
+- **Pickle** – for model saving
+- **Streamlit** – to deploy the recommender system as a web app (optional)
+
+## 🧠 How It Works
+
+1. Data Preprocessing
+   - Merge `movies.csv` and `credits.csv` on movie title.
+   - Extract relevant fields and clean them.
+   - Remove duplicates and null values.
+
+2. Feature Engineering
+   - Extract top 3 actors, director from crew, and keywords.
+   - Convert stringified lists (like genres, keywords) to actual Python lists.
+   - Apply stemming to reduce words to their root form.
+   - Create a `tags` column that combines overview, genres, keywords, cast, and crew into a single string.
+
+3. Vectorization & Similarity
+   - Use **CountVectorizer** to convert text into a numerical matrix (Bag of Words model).
+   - Compute Cosine Similarity between movies based on their tag vectors.
+
+4. Recommendation
+   - For a selected movie, retrieve the top 5 most similar movies based on cosine similarity scores.
+
+## 🚀 How to Run the Project
+
+1. Clone the Repository
+   ```bash
+   git clone https://github.com/yourusername/MovieRecommenderSystem.git
+   cd MovieRecommenderSystem
