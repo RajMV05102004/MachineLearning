@@ -1,0 +1,56 @@
+🏏 T20 Cricket Score Predictor
+
+A machine learning model that predicts the final score of a T20 cricket innings based on current match conditions such as batting team, bowling team, overs completed, runs scored, wickets lost, and recent performance.
+
+📘 Project Overview
+
+This project uses historical T20 match data to build a regression model that can estimate how many runs a team will likely score by the end of their innings.
+
+🧠 Problem Statement
+
+Given the following inputs during a T20 match:
+- Batting team
+- Bowling team
+- Overs completed
+- Current score
+- Wickets fallen
+- Runs scored in the last 5 overs
+
+Predict the final score at the end of the 20 overs.
+
+📂 Dataset
+
+The dataset is cleaned and preprocessed from real-world T20 match data. Key features used include:
+- `batting_team`
+- `bowling_team`
+- `current_score`
+- `balls_left`
+- `wickets_left`
+- `current_run_rate`
+- `last_five_overs_runs`
+
+🛠️ Tech Stack
+
+- Python
+- Pandas, NumPy – for data manipulation
+- Scikit-learn, XGBoost– for machine learning
+- Pickle – for saving the model pipeline
+- Streamlit– for deploying the web app
+
+📊 Model Details
+
+The pipeline uses:
+- OneHotEncoding for categorical features (`batting_team`, `bowling_team`)
+- ThreeLayered Stacking Regressor as the final model, using a combination of Random Forest and XGBoost models in layers
+
+🎯 Evaluation Metric
+
+- The model is evaluated using Mean Squared Error (MSE).
+- Achieved low error with consistent predictions for different match scenarios.
+
+💻 How to Run the Project
+
+1. Clone the Repository
+   ```bash
+   git clone https://github.com/yourusername/CricketT20ScorePredictor.git
+   cd CricketT20ScorePredictor
